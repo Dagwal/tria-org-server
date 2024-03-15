@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EmployeeModule } from './module/employee/employee.module';
+import { EmployeeModule } from './module/employee/departement.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -9,7 +9,7 @@ import { EmployeeModule } from './module/employee/employee.module';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'orga_structure',
+      database: 'tria_org_str_new',
       autoLoadEntities: true,
       synchronize: true,
     }),

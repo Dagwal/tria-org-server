@@ -1,10 +1,10 @@
 import { Controller,  Get,  Post,  Put,  Delete,  Param,  Body, ParseUUIDPipe} from "@nestjs/common";
-import { EmployeeService } from "../service/employee.service";
-import { EmployeeDto } from "../dto/employee.dto";
+import { EmployeeService } from "../service/departement.service";
+import { EmployeeDto } from "../dto/departement.dto";
 import { ApiTags } from "@nestjs/swagger";
 
-@ApiTags("Employees")
-@Controller("employee")
+@ApiTags("Departements")
+@Controller("departement")
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
 
@@ -25,20 +25,17 @@ export class EmployeeController {
 
   @Post()
   async create(@Body() employeeDto: EmployeeDto) {
-    await this.employeeService.createEmployee(employeeDto);
-    return { message: "Employee created successfully" };
+    return await this.employeeService.createEmployee(employeeDto);
   }
 
   @Put(":id")
   async update(@Param("id", ParseUUIDPipe) id: string, @Body() data: EmployeeDto) {
-    await this.employeeService.updateEmployee(id, data);
-    return { message: "Employee updated successfully" };
+    return await this.employeeService.updateEmployee(id, data);
   }
 
   @Delete('id')
   async delete(@Param('id') id: string): Promise<any>{
-    await this.employeeService.removeEmployee(id)
-    return "Employee removed successfuly";
+    return await this.employeeService.removeEmployee(id)
   }
 }
  

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsUUID, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
-export class EmployeeDto {
+export class DepartementDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()

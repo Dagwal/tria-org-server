@@ -18,6 +18,6 @@ async function bootstrap() {
 
 
   await app.listen(4500);
-  console.log(`server running on: http://localhost:${PORT}/api-docs`);
+  console.log(`server running on: http://localhost:${PORT}/docs`);
 }
 bootstrap();
