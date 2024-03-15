@@ -6,36 +6,36 @@ import { ApiTags } from "@nestjs/swagger";
 @ApiTags("Departements")
 @Controller("departement")
 export class DepartementController {
-  constructor(private readonly employeeService: DepartementService) {}
+  constructor(private readonly departementService: DepartementService) {}
 
   @Get()
   async findAll() {
-    return this.employeeService.findAllDepartement();
+    return this.departementService.findAllDepartement();
   }
 
   @Get('hierarchical')
   async findHierarchicalDepartements() {
-    return this.employeeService.getHierarchicalDepartements();
+    return this.departementService.getHierarchicalDepartements();
   }
 
   @Get(":id")
   async findOne(@Param("id", ParseUUIDPipe) id: string) {
-    return await this.employeeService.findOneDepartement(id);
+    return await this.departementService.findOneDepartement(id);
   }
 
   @Post()
-  async create(@Body() employeeDto: DepartementDto) {
-    return await this.employeeService.createDepartement(employeeDto);
+  async create(@Body() departementDto: DepartementDto) {
+    return await this.departementService.createDepartement(departementDto);
   }
 
   @Put(":id")
   async update(@Param("id", ParseUUIDPipe) id: string, @Body() data: DepartementDto) {
-    return await this.employeeService.updateDepartement(id, data);
+    return await this.departementService.updateDepartement(id, data);
   }
 
   @Delete('id')
   async delete(@Param('id') id: string): Promise<any>{
-    return await this.employeeService.removeDepartement(id)
+    return await this.departementService.removeDepartement(id)
   }
 }
  
