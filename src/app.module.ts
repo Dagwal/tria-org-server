@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EmployeeModule } from './module/employee/departement.module';
+import { DepartementModule } from './module/departement/departement.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -13,7 +13,7 @@ import { EmployeeModule } from './module/employee/departement.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    EmployeeModule,
+    DepartementModule,
   ],
 })
 export class AppModule {}

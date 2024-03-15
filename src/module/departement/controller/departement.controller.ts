@@ -1,41 +1,41 @@
 import { Controller,  Get,  Post,  Put,  Delete,  Param,  Body, ParseUUIDPipe} from "@nestjs/common";
-import { EmployeeService } from "../service/departement.service";
-import { EmployeeDto } from "../dto/departement.dto";
+import { DepartementService } from "../service/departement.service";
+import { DepartementDto } from "../dto/departement.dto";
 import { ApiTags } from "@nestjs/swagger";
 
 @ApiTags("Departements")
 @Controller("departement")
-export class EmployeeController {
-  constructor(private readonly employeeService: EmployeeService) {}
+export class DepartementController {
+  constructor(private readonly employeeService: DepartementService) {}
 
   @Get()
   async findAll() {
-    return this.employeeService.findAllEmployee();
+    return this.employeeService.findAllDepartement();
   }
 
   @Get('hierarchical')
-  async findHierarchicalEmployees() {
-    return this.employeeService.getHierarchicalEmployees();
+  async findHierarchicalDepartements() {
+    return this.employeeService.getHierarchicalDepartements();
   }
 
   @Get(":id")
   async findOne(@Param("id", ParseUUIDPipe) id: string) {
-    return await this.employeeService.findOneEmployee(id);
+    return await this.employeeService.findOneDepartement(id);
   }
 
   @Post()
-  async create(@Body() employeeDto: EmployeeDto) {
-    return await this.employeeService.createEmployee(employeeDto);
+  async create(@Body() employeeDto: DepartementDto) {
+    return await this.employeeService.createDepartement(employeeDto);
   }
 
   @Put(":id")
-  async update(@Param("id", ParseUUIDPipe) id: string, @Body() data: EmployeeDto) {
-    return await this.employeeService.updateEmployee(id, data);
+  async update(@Param("id", ParseUUIDPipe) id: string, @Body() data: DepartementDto) {
+    return await this.employeeService.updateDepartement(id, data);
   }
 
   @Delete('id')
   async delete(@Param('id') id: string): Promise<any>{
-    return await this.employeeService.removeEmployee(id)
+    return await this.employeeService.removeDepartement(id)
   }
 }
  
