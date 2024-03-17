@@ -6,7 +6,7 @@ export const swaggerConfig = new DocumentBuilder()
   .setTitle("Tria Organizational Structure Management API Documentation")
   
   .setDescription(
-    "This API documentation provides details on managing organizational structures within a medium-level organization. It allows users to insert, update, retrieve, and delete department structures, including information such as name, description, and managing department. The API is designed to facilitate efficient management of hierarchical relationships within the organization."
+    "This API documentation provides details on managing organizational structures within a medium-level organization. It allows users to insert, update, retrieve, and delete Departement structures, including information such as name, description, and managing Departement. The API is designed to facilitate efficient management of hierarchical relationships within the organization."
   )
   .setVersion("1.0")
   .build();

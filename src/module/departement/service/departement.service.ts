@@ -65,9 +65,13 @@ export class DepartementService {
 
   async findOneDepartement(id: string): Promise<Departement> {
     try {
-      return this.departementRepository.findOne({ where: { id } });
+      const departement = await this.departementRepository.findOneBy({ id });
+      if (!departement) {
+        throw new NotFoundException('Departement not found');
+      }
+      return departement;
     } catch (error) {
-      throw new InternalServerErrorException(error.message);
+      throw new NotFoundException(error.message);
     }
   }
 

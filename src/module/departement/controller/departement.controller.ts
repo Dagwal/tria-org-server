@@ -33,7 +33,7 @@ export class DepartementController {
     return await this.departementService.updateDepartement(id, data);
   }
 
-  @Delete('id')
+  @Delete(':id')
   async delete(@Param('id') id: string): Promise<any>{
     return await this.departementService.removeDepartement(id)
   }
