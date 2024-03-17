@@ -1,23 +1,33 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
-export  class Departement {
+export class Departement {
   @PrimaryGeneratedColumn('uuid')
-  id: string; 
+  id: string;
 
   @Column()
   name: string;
-  
-  @Column()
-  description: string; 
 
-  @Column({nullable: true, type: 'uuid'})
+  @Column()
+  description: string;
+
+  @Column({ nullable: true, type: 'uuid' })
   parentId?: string;
 
-  @ManyToOne(() => Departement, (parent) => parent.children, {nullable: true})
-  @JoinColumn({name: 'parentId'})
+  @ManyToOne(() => Departement, (parent) => parent.children, { nullable: true, onDelete: "CASCADE" })
+  @JoinColumn({ name: 'parentId' })
   parent: Departement;
 
-  @OneToMany(() => Departement, (child) => child.parent, { cascade: true })  
-  children: Departement[];  
+  @OneToMany(() => Departement, (child) => child.parent, {
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
+  children: Departement[];
 }
