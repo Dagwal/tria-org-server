@@ -157,6 +157,3 @@ export class DepartementService {
     return departement;
   }
 }
-// loops through each child and calls the `buildHierarchy` function again to construct the hierarchy for each child.
-
-// compare with id instead of obj
